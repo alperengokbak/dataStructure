@@ -4,7 +4,7 @@
 struct s {
     int size;
     int top;
-    int *array;
+    int* array;
 };
 typedef s stack;
 stack* def();
