@@ -1,44 +1,57 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "stackArray.h"
 
-int* array;             // Stack is running with LIFO logic. Meaning of that is last in First out.
-int size = 2;
-int top = 0;
+// Stack is running with LIFO logic. Meaning of that is last in First out.
 
-int pop(){
-    return array[--top];
+
+stack* def(){
+
+    stack*s = (stack*)malloc(sizeof(stack));
+    s->array = NULL;
+    s->size = 2;
+    s->top = 0;
+    return s;
 }
 
-void push(int a){
-    if(top >= size){
-        int *array2 = (int*)malloc(sizeof(int)*size*2);
-        for(int i = 0;i<size;i++){
-            array2[i] = array[i];
+int pop(stack* s){
+
+    if(s->top <= 0 || s->array == NULL){
+        printf("Array is empty.");
+        return -1;
+    }
+    if(s->top <= s->size/4){
+        int *array2 = (int*)malloc(sizeof(int)*s->size/2);
+        for(int i = 0;i<s->top;i++){
+            array2[i] = s->array[i];
         }
-        free(array);
-        array = array2;
-        size *= 2;
+        free(s->array);
+        s->array = array2;
+        s->size /= 2;
     }
-    array[top++] = a;
+    return s->array[--s->top];
 }
 
-void printArray(){
-    for(int i=0;i<top;i++){
-        printf("%d\n",array[i]);
+void push(int a,stack* s){
+
+    if(s->array = NULL){
+        s->array = (int*)malloc(sizeof(int)*2);
     }
+    if(s->top >= s->size-1){
+        int *array2 = (int*)malloc(sizeof(int)*s->size*2);
+        for(int i = 0;i<s->size;i++){
+            array2[i] = s->array[i];
+        }
+        free(s->array);
+        s->array = array2;
+        s->size *= 2;
+    }
+    s->array[s->top++] = a;
 }
 
-int main(){
-    array = (int*)malloc(sizeof(int)*2);
-
-    push(10);
-    push(20);
-    push(30);
-    push(40);
-    push(50);
-
-    printArray();
-
-    printf("Popped %d\n",pop());
-    printf("Popped %d\n",pop());
+void printArray(stack *s){
+    printf("Size : %d",s->size);
+    for(int i=0;i<s->top;i++){
+        printf("%d\n",s->array[i]);
+    }
 }
