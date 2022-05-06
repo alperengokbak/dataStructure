@@ -6,7 +6,7 @@ int* array = NULL;
 int headOfLine, line = 0;
 int size = 2;
 
-int deque(){
+int dequeue(){
     if(line == headOfLine){
         printf("Line is empty");
         return -1;
@@ -36,7 +36,7 @@ void clean(){
     headOfLine = 0;
 }
 
-void enque(int a){
+void enqueue(int a){
     if(array == NULL){
         array = (int*)malloc(sizeof(int)*2);
     }

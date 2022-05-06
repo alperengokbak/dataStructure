@@ -1,7 +1,7 @@
 #ifndef queueArrays
 #define queueArrays
 
-int deque();
+int dequeue();
 void clean();
-void enque(int );
+void enqueue(int );
 #endif
