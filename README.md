@@ -1,11 +1,11 @@
-# Linked List with C
+# Data Structure
 
-Hello, I want to share my codes with you. I did some examples about type of linked list and dynamic array. I hope it helps you too...
+Hello, I want to share my codes with you. I did some examples about data structure lesson. I hope it helps you too...
 
 ## Hint
 If you get error like this "collect2.exe: error: ld returned 1 exit status":
 
-You should run "main.cpp" with the "stackArray.cpp" file. For example:
+You should run "main.cpp(your main file)" with the "stackArray.cpp(It can be change according to your file name )" file. For example:
 
 ```
 g++ -o main.exe main.cpp stackArray.cpp
