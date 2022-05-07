@@ -30,7 +30,6 @@ int min(node* tree){
     }
     return tree->data;
 }
-
 void traversalLRR(node*tree){
     if(tree == NULL){
         return;
